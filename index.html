@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Happyyy</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+       
+        <div class="begin">
+
+            <h1>HAPPY BIRTHDAY LOVE</h1>
+
+            <p>
+                Happy birthday to the finest of the Gentlemen and to my
+                all time absolute 100% very best fave human ever.
+            </p>
+
+            <p id="chik">- chikkku!!</p>
+
+        </div>
+
+
+        
+        <div class="letter">
+            <a href="letter.html" aria-label="Open the full-size birthday letter">
+                <img id="love" src="assets/letter1.jfif" alt="Birthday letter">
+            </a>
+        </div>
+
+
+       
+        <div class="videoss">
+
+            <video autoplay muted loop>
+                <source src="assets/ash.mp4" type="video/mp4">
+            </video>
+
+        </div>
+
+
+        <div>
+
+            <p class="kunj">
+                To the 24-year-old Ashwin I began to fall for, who's now
+                25... you might not be too fond of me mentioning your age,
+                but here I am, heheehe. ❤️
+
+                <br><br>
+
+                I will never forget the day we started messaging, not knowing
+                it would be the beginning of the most amazing love. Little
+                did I know that one conversation would lead me to someone
+                who would become so special to me. And here I am, still
+                falling for you, loving you and looking forward to making
+                a million more memories together.
+            </p>
+
+        </div>
+
+        <div class="things">
+
+            <h1 id="abt"> <center> <i> Things I Love About you </i> </center>  </h1>
+           <div class="abt">
+            <div class="hair">
+                <img src="./assets/hair.jpeg" height="300px" >
+                <h3>your hair</h3>
+            </div>
+             <div class="smile">
+                <img src="./assets/smile.jpeg" height="400px">
+                <h3>your smile</h3>
+            </div>
+             <div class="giant">
+                <img src="./assets/giant.jpeg" height="400px">
+                <h3>your giant body</h3>
+            </div>
+             <div class="biceps">
+                <img src="./assets/biceps.jpeg" height="400px">
+                <h3>your biceps</h3>
+            </div>
+             <div class="gf">
+                <img src="./assets/gf.jpeg" height="400px">
+                <h3>your gf(me,obviously!)</h3>
+            </div>
+             <div class="boy">
+                <img src="./assets/boy.jpeg" height="400px">
+                <h3>everything abt this little boy</h3>
+            </div>
+            </div>
+        </div>
+       <section class="music">
+    <h1 class="music-title">
+        <i>This <b>song</b> reminds me of you</i>
+    </h1>
+
+    <div class="cd-stage">
+
+        <!-- Click / hover the CD to play -->
+        <img id="cdplay"
+             src="./assets/cd22.jpg"
+             alt="A black record">
+
+        <aside class="music-note music-note-left">
+            <span class="note-label">OUR SOUNDTRACK</span>
+            <p>For all the little moments that feel like us.</p>
+        </aside>
+
+        <aside class="music-note music-note-right">
+
+            <div class="sound-wave" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Hidden audio -->
+            <audio id="song" loop preload="metadata">
+                <source src="./assets/song.mpeg" type="audio/mpeg">
+            </audio>
+
+            <span class="note-label">ON REPEAT</span>
+            <p>I Think They Call This Love.</p>
+
+        </aside>
+    </div>
+</section>
+<section class="final-tribute">
+    <div class="final-copy">
+        <p class="eyebrow">Forever Us</p>
+        <h1>And here's a little piece of us. 💗</h1>
+        <p>
+            a collection of my favourite moments, my favourite person,
+            and a love that means more to me than words could ever explain.
+        </p>
+        <button class="play-video-button" type="button" aria-label="Play the memory video in fullscreen">
+            Play the video
+        </button>
+    </div>
+
+    <div class="final-video-wrap">
+        <video id="finalMemoryVideo" playsinline preload="metadata">
+            <source src="assets/edit.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<script>
+    const cd = document.getElementById("cdplay");
+    const song = document.getElementById("song");
+    const finalVideo = document.getElementById("finalMemoryVideo");
+    const finalPlayButton = document.querySelector(".play-video-button");
+
+    cd.addEventListener("click", () => {
+        if (song.paused) {
+            song.play();
+            cd.classList.add("playing");
+        } else {
+            song.pause();
+            cd.classList.remove("playing");
+        }
+    });
+
+    finalPlayButton.addEventListener("click", async () => {
+        if (!finalVideo) return;
+
+        try {
+            if (document.fullscreenElement) {
+                await document.exitFullscreen();
+                return;
+            }
+
+            if (finalVideo.requestFullscreen) {
+                await finalVideo.requestFullscreen();
+            }
+
+            if (finalVideo.paused) {
+                await finalVideo.play();
+            }
+        } catch (error) {
+            console.log("Fullscreen video play was blocked:", error);
+            finalVideo.muted = false;
+            finalVideo.play();
+        }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement && !finalVideo.paused) {
+            finalVideo.pause();
+        }
+    });
+</script>
+
+<div>
+    
+</div>
+
+    </body>
+</html>
